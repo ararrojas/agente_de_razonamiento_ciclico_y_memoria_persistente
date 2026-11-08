@@ -1,0 +1,549 @@
+{
+  "thread_id": "demo-20261108-145434",
+  "metadatos": {
+    "modelo": "google:gemini-3.5-flash-lite",
+    "recursion_limit": 10,
+    "umbral_resumen": 14,
+    "generada": "2026-11-08T13:54:34+00:00",
+    "completa": true
+  },
+  "resumen_por_turno": {
+    "1": {
+      "acciones": 1,
+      "errores": 0
+    },
+    "2": {
+      "acciones": 2,
+      "errores": 0
+    },
+    "3": {
+      "acciones": 1,
+      "errores": 0
+    },
+    "4": {
+      "acciones": 2,
+      "errores": 1
+    },
+    "5": {
+      "acciones": 1,
+      "errores": 0
+    },
+    "6": {
+      "acciones": 1,
+      "errores": 0
+    },
+    "7": {
+      "acciones": 0,
+      "errores": 0
+    }
+  },
+  "pasos": [
+    {
+      "n": 1,
+      "turno": 1,
+      "tipo": "pregunta",
+      "nodo": "usuario",
+      "hora": "2026-11-08T14:54:34.694",
+      "texto": "¿Tienen disponible Rayuela?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 2,
+      "turno": 1,
+      "tipo": "accion",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:54:50.696",
+      "texto": null,
+      "herramienta": "buscar_libro",
+      "argumentos": {
+        "consulta": "Rayuela"
+      },
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 3,
+      "turno": 1,
+      "tipo": "observacion",
+      "nodo": "herramientas",
+      "hora": "2026-11-08T14:54:50.740",
+      "texto": null,
+      "herramienta": "buscar_libro",
+      "argumentos": null,
+      "resultado": {
+        "cantidad": 1,
+        "resultados": [
+          {
+            "libro_id": "L-01",
+            "titulo": "Rayuela",
+            "autor": "Julio Cortázar",
+            "ejemplares_totales": 2,
+            "disponibles": 0,
+            "proxima_devolucion": "2026-10-15"
+          }
+        ]
+      },
+      "es_error": false
+    },
+    {
+      "n": 4,
+      "turno": 1,
+      "tipo": "respuesta",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:55:05.618",
+      "texto": "No, en este momento no tenemos ejemplares disponibles de *Rayuela* de Julio Cortázar. Los 2 que tenemos están prestados y su próxima devolución estimada es para el 15 de octubre de 2026. ¿Querés que te busque otro título?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 5,
+      "turno": 2,
+      "tipo": "pregunta",
+      "nodo": "usuario",
+      "hora": "2026-11-08T14:55:05.619",
+      "texto": "Soy Ana Torres. ¿Qué libros tengo prestados?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 6,
+      "turno": 2,
+      "tipo": "accion",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:55:20.978",
+      "texto": null,
+      "herramienta": "buscar_socio",
+      "argumentos": {
+        "nombre": "Ana Torres"
+      },
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 7,
+      "turno": 2,
+      "tipo": "observacion",
+      "nodo": "herramientas",
+      "hora": "2026-11-08T14:55:21.001",
+      "texto": null,
+      "herramienta": "buscar_socio",
+      "argumentos": null,
+      "resultado": {
+        "cantidad": 1,
+        "coincidencias": [
+          {
+            "socio_id": 11,
+            "nombre": "Ana Torres",
+            "categoria": "estudiante"
+          }
+        ]
+      },
+      "es_error": false
+    },
+    {
+      "n": 8,
+      "turno": 2,
+      "tipo": "accion",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:55:36.229",
+      "texto": null,
+      "herramienta": "prestamos_de_socio",
+      "argumentos": {
+        "socio_id": 11
+      },
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 9,
+      "turno": 2,
+      "tipo": "observacion",
+      "nodo": "herramientas",
+      "hora": "2026-11-08T14:55:36.315",
+      "texto": null,
+      "herramienta": "prestamos_de_socio",
+      "argumentos": null,
+      "resultado": {
+        "socio_id": 11,
+        "socio": "Ana Torres",
+        "fecha_consulta": "2026-11-06",
+        "cantidad": 2,
+        "prestamos": [
+          {
+            "libro_id": "L-01",
+            "titulo": "Rayuela",
+            "desde": "2026-10-01",
+            "vence": "2026-10-15",
+            "dias_atraso": 22
+          },
+          {
+            "libro_id": "L-03",
+            "titulo": "El Aleph",
+            "desde": "2026-10-25",
+            "vence": "2026-11-08",
+            "dias_atraso": 0
+          }
+        ]
+      },
+      "es_error": false
+    },
+    {
+      "n": 10,
+      "turno": 2,
+      "tipo": "respuesta",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:55:52.361",
+      "texto": "Hola Ana! Tenés dos libros prestados:\n\n- **Rayuela** (Julio Cortázar): vencía el 15/10/2026 y tiene **22 días de atraso**.\n- **El Aleph** (Jorge Luis Borges): vence el 08/11/2026 (al día).\n\nOjo que *Rayuela* está vencido, así que te recomiendo que te des una vuelta por la biblioteca para devolverlo.",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 11,
+      "turno": 3,
+      "tipo": "pregunta",
+      "nodo": "usuario",
+      "hora": "2026-11-08T14:55:52.362",
+      "texto": "¿Y tengo que pagar alguna multa?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 12,
+      "turno": 3,
+      "tipo": "accion",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:56:06.735",
+      "texto": null,
+      "herramienta": "calcular_multa",
+      "argumentos": {
+        "socio_id": 11
+      },
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 13,
+      "turno": 3,
+      "tipo": "observacion",
+      "nodo": "herramientas",
+      "hora": "2026-11-08T14:56:06.780",
+      "texto": null,
+      "herramienta": "calcular_multa",
+      "argumentos": null,
+      "resultado": {
+        "socio_id": 11,
+        "socio": "Ana Torres",
+        "exento": false,
+        "total": 3300,
+        "puede_pedir_prestamos": false,
+        "detalle": [
+          {
+            "libro_id": "L-01",
+            "dias_atraso": 22,
+            "importe": 3300
+          }
+        ]
+      },
+      "es_error": false
+    },
+    {
+      "n": 14,
+      "turno": 3,
+      "tipo": "respuesta",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:56:23.080",
+      "texto": "Sí, Ana. Como *Rayuela* tiene 22 días de atraso, tenés una multa acumulada de **$3.300** ($150 por día). \n\nRecordá que hasta que no pagues la multa y devuelvas el libro atrasado, no vas a poder pedir nuevos préstamos.",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 15,
+      "turno": 4,
+      "tipo": "pregunta",
+      "nodo": "usuario",
+      "hora": "2026-11-08T14:56:23.082",
+      "texto": "¿Hay algún ejemplar de Cien años de solead?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 16,
+      "turno": 4,
+      "tipo": "memoria_compactada",
+      "nodo": "memoria",
+      "hora": "2026-11-08T14:56:23.084",
+      "texto": "- Usuario preguntó: ¿Tienen disponible Rayuela?\n  Asistente respondió: No, en este momento no tenemos ejemplares disponibles de *Rayuela* de Julio Cortázar. Los 2 que tenemos están prestados y su próxima devolución estimada es para el 15 de octubre de 2026. ¿Querés que te busque otro título?\n- Usuario preguntó: Soy Ana Torres. ¿Qué libros tengo prestados?\n  Asistente respondió: Hola Ana! Tenés dos libros prestados:\n\n- **Rayuela** (Julio Cortázar): vencía el 15/10/2026 y tiene **22 días de atraso**.\n- **El Aleph** (Jorge Luis Borges): vence el 08/11/2026 (al día).\n\nOjo que *Rayuela* está vencido, así que te recomiendo que te des una vuelta por la biblioteca para devolverlo.",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": {
+        "mensajes_resumidos": 10
+      },
+      "es_error": false
+    },
+    {
+      "n": 17,
+      "turno": 4,
+      "tipo": "accion",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:56:37.375",
+      "texto": null,
+      "herramienta": "buscar_libro",
+      "argumentos": {
+        "consulta": "Cien años de solead"
+      },
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 18,
+      "turno": 4,
+      "tipo": "observacion",
+      "nodo": "herramientas",
+      "hora": "2026-11-08T14:56:37.420",
+      "texto": null,
+      "herramienta": "buscar_libro",
+      "argumentos": null,
+      "resultado": {
+        "error": "SIN_RESULTADOS",
+        "detalle": "Ningún título ni autor contiene 'Cien años de solead'.",
+        "quizas_quisiste_decir": [
+          "Cien años de soledad"
+        ],
+        "sugerencia": "Reintentá con una de las sugerencias o pedí aclaración al usuario."
+      },
+      "es_error": true
+    },
+    {
+      "n": 19,
+      "turno": 4,
+      "tipo": "accion",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:56:53.169",
+      "texto": null,
+      "herramienta": "buscar_libro",
+      "argumentos": {
+        "consulta": "Cien años de soledad"
+      },
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 20,
+      "turno": 4,
+      "tipo": "observacion",
+      "nodo": "herramientas",
+      "hora": "2026-11-08T14:56:53.214",
+      "texto": null,
+      "herramienta": "buscar_libro",
+      "argumentos": null,
+      "resultado": {
+        "cantidad": 1,
+        "resultados": [
+          {
+            "libro_id": "L-02",
+            "titulo": "Cien años de soledad",
+            "autor": "Gabriel García Márquez",
+            "ejemplares_totales": 3,
+            "disponibles": 2
+          }
+        ]
+      },
+      "es_error": false
+    },
+    {
+      "n": 21,
+      "turno": 4,
+      "tipo": "respuesta",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:57:08.123",
+      "texto": "Sí, tenemos *Cien años de soledad* de Gabriel García Márquez. De los 3 ejemplares que hay en la biblioteca, **2 están disponibles** para retirar. ¿Querés que te guarde uno?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 22,
+      "turno": 5,
+      "tipo": "pregunta",
+      "nodo": "usuario",
+      "hora": "2026-11-08T14:57:08.125",
+      "texto": "Quiero ver los préstamos de Pérez.",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 23,
+      "turno": 5,
+      "tipo": "accion",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:57:23.245",
+      "texto": null,
+      "herramienta": "buscar_socio",
+      "argumentos": {
+        "nombre": "Pérez"
+      },
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 24,
+      "turno": 5,
+      "tipo": "observacion",
+      "nodo": "herramientas",
+      "hora": "2026-11-08T14:57:23.267",
+      "texto": null,
+      "herramienta": "buscar_socio",
+      "argumentos": null,
+      "resultado": {
+        "cantidad": 2,
+        "coincidencias": [
+          {
+            "socio_id": 12,
+            "nombre": "Bruno Pérez",
+            "categoria": "general"
+          },
+          {
+            "socio_id": 13,
+            "nombre": "Camila Pérez",
+            "categoria": "docente"
+          }
+        ],
+        "ambiguo": true,
+        "sugerencia": "Hay varias personas: preguntá al usuario a cuál se refiere."
+      },
+      "es_error": false
+    },
+    {
+      "n": 25,
+      "turno": 5,
+      "tipo": "respuesta",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:57:38.734",
+      "texto": "Encontré a dos socios con ese apellido:\n\n1. **Bruno Pérez**\n2. **Camila Pérez**\n\n¿A cuál de los dos te referís?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 26,
+      "turno": 6,
+      "tipo": "pregunta",
+      "nodo": "usuario",
+      "hora": "2026-11-08T14:57:38.735",
+      "texto": "Camila.",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 27,
+      "turno": 6,
+      "tipo": "memoria_compactada",
+      "nodo": "memoria",
+      "hora": "2026-11-08T14:57:38.737",
+      "texto": "- Usuario preguntó: ¿Tienen disponible Rayuela?\n  Asistente respondió: No, en este momento no tenemos ejemplares disponibles de *Rayuela* de Julio Cortázar. Los 2 que tenemos están prestados y su próxima devolución estimada es para el 15 de octubre de 2026. ¿Querés que te busque otro título?\n- Usuario preguntó: Soy Ana Torres. ¿Qué libros tengo prestados?\n  Asistente respondió: Hola Ana! Tenés dos libros prestados:\n\n- **Rayuela** (Julio Cortázar): vencía el 15/10/2026 y tiene **22 días de atraso**.\n- **El Aleph** (Jorge Luis Borges): vence el 08/11/2026 (al día).\n\nOjo que *Rayuela* está vencido, así que te recomiendo que te des una vuelta por la biblioteca para devolverlo.\n- Usuario preguntó: ¿Y tengo que pagar alguna multa?\n  Asistente respondió: Sí, Ana. Como *Rayuela* tiene 22 días de atraso, tenés una multa acumulada de **$3.300** ($150 por día). \n\nRecordá que hasta que no pagues la multa y devuelvas el libro atrasado, no vas a poder pedir nuevos préstamos.\n- Usuario preguntó: ¿Hay algún ejemplar de Cien años de solead?\n  Asistente respondió: Sí, tenemos *Cien años de soledad* de Gabriel García Márquez. De los 3 ejemplares que hay en la biblioteca, **2 están disponibles** para retirar. ¿Querés que te guarde uno?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": {
+        "mensajes_resumidos": 10
+      },
+      "es_error": false
+    },
+    {
+      "n": 28,
+      "turno": 6,
+      "tipo": "accion",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:57:54.031",
+      "texto": null,
+      "herramienta": "prestamos_de_socio",
+      "argumentos": {
+        "socio_id": 13
+      },
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 29,
+      "turno": 6,
+      "tipo": "observacion",
+      "nodo": "herramientas",
+      "hora": "2026-11-08T14:57:54.096",
+      "texto": null,
+      "herramienta": "prestamos_de_socio",
+      "argumentos": null,
+      "resultado": {
+        "socio_id": 13,
+        "socio": "Camila Pérez",
+        "fecha_consulta": "2026-11-06",
+        "cantidad": 1,
+        "prestamos": [
+          {
+            "libro_id": "L-05",
+            "titulo": "La casa de los espíritus",
+            "desde": "2026-11-01",
+            "vence": "2026-11-15",
+            "dias_atraso": 0
+          }
+        ]
+      },
+      "es_error": false
+    },
+    {
+      "n": 30,
+      "turno": 6,
+      "tipo": "respuesta",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:58:09.447",
+      "texto": "Camila Pérez tiene un libro prestado:\n\n- **La casa de los espíritus** (Isabel Allende): vence el 15/11/2026 y está al día.",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 31,
+      "turno": 7,
+      "tipo": "pregunta",
+      "nodo": "usuario",
+      "hora": "2026-11-08T14:58:09.464",
+      "texto": "Antes de irme: ¿cuánto era la multa que me salió a mí?",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    },
+    {
+      "n": 32,
+      "turno": 7,
+      "tipo": "respuesta",
+      "nodo": "modelo",
+      "hora": "2026-11-08T14:58:24.671",
+      "texto": "Tenías una multa acumulada de **$3.300** por los 22 días de atraso con *Rayuela*. \n\n¡Acordate de pasar a devolverlo y regularizar la situación así podés volver a pedir libros!",
+      "herramienta": null,
+      "argumentos": null,
+      "resultado": null,
+      "es_error": false
+    }
+  ]
+}

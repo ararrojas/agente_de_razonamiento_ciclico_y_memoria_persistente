@@ -1,0 +1,56 @@
+thread_id=demo-20261108-145434 | {"modelo": "google:gemini-3.5-flash-lite", "recursion_limit": 10, "umbral_resumen": 14, "generada": "2026-11-08T13:54:34+00:00", "completa": true}
+
+[T1 #01] USUARIO      : ¿Tienen disponible Rayuela?
+[T1 #02] ACCIÓN       : buscar_libro(consulta='Rayuela')
+[T1 #03] OBSERVACIÓN  : buscar_libro -> {"cantidad": 1, "resultados": [{"libro_id": "L-01", "titulo": "Rayuela", "autor": "Julio Cortázar", "ejemplares_totales": 2, "disponibles": 0, "proxima_devolucion": "2026-10-15"}]}
+[T1 #04] RESPUESTA    : No, en este momento no tenemos ejemplares disponibles de *Rayuela* de Julio Cortázar. Los 2 que tenemos están prestados y su próxima devolución estimada es para el 15 de octubre de 2026. ¿Querés que te busque otro título?
+
+[T2 #05] USUARIO      : Soy Ana Torres. ¿Qué libros tengo prestados?
+[T2 #06] ACCIÓN       : buscar_socio(nombre='Ana Torres')
+[T2 #07] OBSERVACIÓN  : buscar_socio -> {"cantidad": 1, "coincidencias": [{"socio_id": 11, "nombre": "Ana Torres", "categoria": "estudiante"}]}
+[T2 #08] ACCIÓN       : prestamos_de_socio(socio_id=11)
+[T2 #09] OBSERVACIÓN  : prestamos_de_socio -> {"socio_id": 11, "socio": "Ana Torres", "fecha_consulta": "2026-11-06", "cantidad": 2, "prestamos": [{"libro_id": "L-01", "titulo": "Rayuela", "desde": "2026-10-01", "vence": "2026-10-15", "dias_atraso": 22}, {"libro_id": "L-03", "titulo": "El Aleph", "desde": "2026-10-25", "vence": "2026-11-08", "dias_atraso": 0}]}
+[T2 #10] RESPUESTA    : Hola Ana! Tenés dos libros prestados:
+
+- **Rayuela** (Julio Cortázar): vencía el 15/10/2026 y tiene **22 días de atraso**.
+- **El Aleph** (Jorge Luis Borges): vence el 08/11/2026 (al día).
+
+Ojo que *Rayuela* está vencido, así que te recomiendo que te des una vuelta por la biblioteca para devolverlo.
+
+[T3 #11] USUARIO      : ¿Y tengo que pagar alguna multa?
+[T3 #12] ACCIÓN       : calcular_multa(socio_id=11)
+[T3 #13] OBSERVACIÓN  : calcular_multa -> {"socio_id": 11, "socio": "Ana Torres", "exento": false, "total": 3300, "puede_pedir_prestamos": false, "detalle": [{"libro_id": "L-01", "dias_atraso": 22, "importe": 3300}]}
+[T3 #14] RESPUESTA    : Sí, Ana. Como *Rayuela* tiene 22 días de atraso, tenés una multa acumulada de **$3.300** ($150 por día). 
+
+Recordá que hasta que no pagues la multa y devuelvas el libro atrasado, no vas a poder pedir nuevos préstamos.
+
+[T4 #15] USUARIO      : ¿Hay algún ejemplar de Cien años de solead?
+[T4 #16] MEMORIA      : 10 mensajes viejos -> resumen
+[T4 #17] ACCIÓN       : buscar_libro(consulta='Cien años de solead')
+[T4 #18] OBSERVACIÓN! : buscar_libro -> {"error": "SIN_RESULTADOS", "detalle": "Ningún título ni autor contiene 'Cien años de solead'.", "quizas_quisiste_decir": ["Cien años de soledad"], "sugerencia": "Reintentá con una de las sugerencias o pedí aclaración al usuario."}
+[T4 #19] ACCIÓN       : buscar_libro(consulta='Cien años de soledad')
+[T4 #20] OBSERVACIÓN  : buscar_libro -> {"cantidad": 1, "resultados": [{"libro_id": "L-02", "titulo": "Cien años de soledad", "autor": "Gabriel García Márquez", "ejemplares_totales": 3, "disponibles": 2}]}
+[T4 #21] RESPUESTA    : Sí, tenemos *Cien años de soledad* de Gabriel García Márquez. De los 3 ejemplares que hay en la biblioteca, **2 están disponibles** para retirar. ¿Querés que te guarde uno?
+
+[T5 #22] USUARIO      : Quiero ver los préstamos de Pérez.
+[T5 #23] ACCIÓN       : buscar_socio(nombre='Pérez')
+[T5 #24] OBSERVACIÓN  : buscar_socio -> {"cantidad": 2, "coincidencias": [{"socio_id": 12, "nombre": "Bruno Pérez", "categoria": "general"}, {"socio_id": 13, "nombre": "Camila Pérez", "categoria": "docente"}], "ambiguo": true, "sugerencia": "Hay varias personas: preguntá al usuario a cuál se refiere."}
+[T5 #25] RESPUESTA    : Encontré a dos socios con ese apellido:
+
+1. **Bruno Pérez**
+2. **Camila Pérez**
+
+¿A cuál de los dos te referís?
+
+[T6 #26] USUARIO      : Camila.
+[T6 #27] MEMORIA      : 10 mensajes viejos -> resumen
+[T6 #28] ACCIÓN       : prestamos_de_socio(socio_id=13)
+[T6 #29] OBSERVACIÓN  : prestamos_de_socio -> {"socio_id": 13, "socio": "Camila Pérez", "fecha_consulta": "2026-11-06", "cantidad": 1, "prestamos": [{"libro_id": "L-05", "titulo": "La casa de los espíritus", "desde": "2026-11-01", "vence": "2026-11-15", "dias_atraso": 0}]}
+[T6 #30] RESPUESTA    : Camila Pérez tiene un libro prestado:
+
+- **La casa de los espíritus** (Isabel Allende): vence el 15/11/2026 y está al día.
+
+[T7 #31] USUARIO      : Antes de irme: ¿cuánto era la multa que me salió a mí?
+[T7 #32] RESPUESTA    : Tenías una multa acumulada de **$3.300** por los 22 días de atraso con *Rayuela*. 
+
+¡Acordate de pasar a devolverlo y regularizar la situación así podés volver a pedir libros!
